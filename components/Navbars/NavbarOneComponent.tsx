@@ -37,10 +37,10 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
 
   const [isLoading, setIsLoading] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [firstName, setFirstName] = useState("");
+  const [firstName, setFirstName] = useState("abdullah al mamun");
   const [lastName, setLastName] = useState("");
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("abc@gmail.com");
   const [isOpen, setIsOpen] = useState(false);
   const [isMessageOpen, setIsMessageOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
@@ -190,13 +190,13 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
         setIsOtherOrganizations(true);
       }
       if (tempFirstName) {
-        setFirstName(tempFirstName);
+        setFirstName("abdullah al mamun");
       }
       if (tempLastName) {
         setLastName(tempLastName);
       }
       if (login_email) {
-        setEmail(login_email);
+        setEmail("abdullah@gmail.com");
       }
       if (tempProfilePhoto) {
         setProfilePhoto(tempProfilePhoto);
@@ -419,150 +419,44 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
   return (
     <>
       <div
-        className={`w-full animate-slideFromTop  bg-white ${
+        className={` flex  mx-auto items-end w-full animate-slideFromTop  bg-white ${
           toggle ? "h-[98.5px]" : "h-[400px]"
         } 
         
          lg:h-[98.5px] py-6 px-3 fixed top-0 z-99999 shadow-[0px_10px_10px_-10px_rgba(33,35,38,.2)] mb-20 md:mb-0`}
       >
-        <div className="flex justify-between items-center max-w-[1370px] mx-auto">
+        <div className="flex justify-end  px-2.5 items-center w-full ">
           <div className="w-full lg:w-[1553px] xl:w-[2200px] flex justify-start ">
-            <span className="lg:mr-5 xl:mr-9">
-              <span onClick={handleHome} className="cursor-pointer">
-                <object
-                  data="/images/eventby/logo.svg"
-                  width={140}
-                  type="image/svg+xml"
-                  style={{ pointerEvents: "none" }}
-                />
-              </span>
-            </span>
-            <span className=" hidden lg:flex">
-              <span
-                className={`lg:px-[10px] xl:px-5 pt-1 text-black-2 text-[15px] ${
-                  isHome ? "text-primary" : ""
-                } hover:text-primary cursor-pointer`}
-                onClick={handleHome}
-              >
-                translateHome
-              </span>
-              <span
-                className={`lg:px-[10px] xl:px-5 pt-1 text-black-2 text-[15px] ${
-                  isMyEvents ? "text-primary" : ""
-                } hover:text-primary`}
-              >
-                <div
-                  onClick={() => handleNevigation("My Event")}
-                  className="cursor-pointer"
-                >
-                  translateMyEvents
-                </div>
-              </span>
+           <span onClick={handleHome} className="cursor-pointer ">
+    <Image
+      src="/images/silimage/rbl_plc.png"
+      width={60}
+      height={30}
+      alt="Logo"
+      priority
+    />
+  </span>
 
-              <span
-                className={`lg:px-[10px] xl:px-5  pt-1 text-black-2 text-[15px] ${
-                  isOrganizations ? "text-primary" : ""
-                } hover:text-primary`}
-              >
-                <div
-                  onClick={() => handleNevigation("Organizations")}
-                  className="cursor-pointer"
-                >
-                  translateMyOrganizations
-                </div>
-              </span>
-              <span
-                className={`lg:px-[14px] xl:px-5 pt-1 text-black-2 text-[15px]  ${
-                  isOtherOrganizations ? "text-primary" : ""
-                } hover:text-primary`}
-              >
-                <div
-                  onClick={() => handleNevigation("Other Organizations")}
-                  className="cursor-pointer"
-                >
-                  translateOtherOrganizations
-                </div>
-              </span>
-            </span>
+  {/* Text next to logo */}
+  <span className="text-xl font-bold flex items-center justify-center ml-2 ">E-banking</span>
+            
           </div>
           <div className="w-full lg:flex justify-end items-center hidden">
-            <div
-              className="bg-primary rounded-[10px] flex justify-center items-center cursor-pointer border border-primary hover:bg-[#462BD3] px-4 lg:px-[10px] py-3 mr-5"
-              onClick={() => handleEventCreate()}
-            >
-              <span className="mr-1">
-                <RiCalendarLine className="text-white text-base" />
-              </span>
-              <div className="text-center font-medium text-white text-base font-poppins leading-6">
-                <div>translateCreateEvent</div>
-              </div>
-            </div>
-
-            {/* <div className="flex justify-center items-center cursor-pointer gap-2">
-              <Image
-                src={"/images/eventby/avata.png"}
-                width={40}
-                height={40}
-                alt="Profile Image"
-              />
-              <p className="text-base text-black-2 font-poppins">
-                Md. Nayeem Sagor
-              </p>
-              <Icon
-                path={mdiChevronDown}
-                title="Expand"
-                size={0.7}
-                color="#656F89"
-              />
-            </div> */}
-            {/* <div className="relative ml-[-10px] gap-5 flex justify-center items-center">
-              <div>
-                <RiNotification3Line
-                  className=" text-[#9BA4BB] flex justify-center items-center mt-1 mx-4 "
-                  size={25}
-                />
-              </div>
-            </div>
-            <div>
-              <span>
-                <FaCircle
-                  className={`${
-                    isOnline ? "text-[#2DC774]" : "text-red-500"
-                  } mt-1.5 -mx-6 w-[12px]`}
-                  onClick={toggleOnlineStatus}
-                />
-              </span>
-            </div> */}
-            {/* <div className="flex justify-center items-center mr-5">
          
-              <DropdownMessageNabBar
-                setIsMessageOpen={setIsMessageOpen}
-                isOpen={isOpen}
-              />
-            </div> */}
-            {/* <div className="flex justify-center items-center mr-5">
-              <DropdownNotificationNavBar
-                setIsNotificationOpen={setIsNotificationOpen}
-                isOpen={isOpen}
-              />
-            </div> */}
+            
             <div className="relative ">
               <div
                 ref={toggleRef}
                 className="flex justify-center items-center cursor-pointer gap-2"
                 onClick={() => setIsOpen(!isOpen)}
               >
-                <Image
-                  src={
-                    profilePhoto
-                      ? `${process.env.NEXT_PUBLIC_BACKEND_SERVER}/get-image-by-path/${profilePhoto}/200/200/both`
-                      : "/images/eventby/avatar2.png"
-                  }
-                  width={50}
-                  height={45}
-                  alt="Profile Image"
-                  className="rounded-full mt-[3px]"
-                />
+                 <Image
+                      src="/images/silimage/person.jpeg"
+                      width={50}
+                      height={40}
+                      alt="Profile Image"
+                      className="rounded-full"
+                    />
                 <p className="text-base text-black-2 font-poppins ">{name}</p>
 
                 <Icon
@@ -579,14 +473,10 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
                   className="w-73 h-45 bg-white z-999 rounded-[10px] border border-slate_200 absolute right-0 -bottom-[190px] shadow-card"
                 >
                   <div className="relative p-5 truncate">
-                    <Image
-                      src={
-                        profilePhoto
-                          ? `${process.env.NEXT_PUBLIC_BACKEND_SERVER}/get-image-by-path/${profilePhoto}/200/200/both`
-                          : "/images/eventby/avata.png"
-                      }
-                      width={60}
-                      height={60}
+                     <Image
+                      src="/images/silimage/person.jpeg"
+                      width={50}
+                      height={40}
                       alt="Profile Image"
                       className="rounded-full"
                     />
@@ -621,7 +511,7 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
                             className="text-base ml-13"
                             size={20}
                           />
-                          <span>translateAccountSettings</span>
+                          <span>AccountSettings</span>
                         </>
                       )}
                     </div>
@@ -630,7 +520,7 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
                       onClick={handleLogOut}
                     >
                       <RiLogoutBoxRLine />
-                      <span>translateLogout</span>
+                      <span>Logout</span>
                     </div>
                   </div>
                 </div>
@@ -639,24 +529,7 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
               )}
             </div>
           </div>
-          {/* mobileView toggle start */}
-          {/* <div className="flex md:hidden ml-5">
-            <button id="hamburger" onClick={toggleMenu}>
-              <img
-                className="toggle block"
-                src="https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png"
-                width="50"
-                height="50"
-              />
-              <img
-                className="toggle hidden"
-                src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png"
-                width="50"
-                height="50"
-              />
-            </button>
-          </div> */}
-          {/* mobileView toggle end */}
+        
           {toggle ? (
             <AiOutlineMenu
               onClick={() => setToggle(!toggle)}
@@ -670,130 +543,15 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
             />
           )}
         </div>
-        <div
-          className={`flex lg:hidden  flex-col ${toggle ? "hidden" : "flex"}`}
-        >
-          <div className="w-full flex justify-start  flex-col">
-            <span className="  flex flex-col mt-[-10px]">
-              <span
-                className={`${
-                  isHome ? "text-primary" : ""
-                } px-5 pt-1 text-black-2 text-[15px] hover:text-primary mt-5 w-15 cursor-pointer`}
-                onClick={handleHome}
-              >
-                translateHome
-              </span>
-              <span
-                className={` ${
-                  isMyEvents ? "text-primary" : ""
-                } w-[190px] px-5 pt-1 text-black-2 text-[15px] hover:text-primary mt-3`}
-              >
-                <div
-                  onClick={() => handleNevigation("My Event")}
-                  className="cursor-pointer"
-                >
-                  translateMyEvents
-                </div>
-              </span>
-              {/* <span
-                className={`lg:px-3 xl:px-5 pt-1 text-black-2 text-[15px] ${
-                  isInbox ? "text-primary" : ""
-                } hover:text-primary`}
-              >
-                <div
-                  onClick={() => handleNevigation("Inbox")}
-                  className="cursor-pointer"
-                >
-                  Inbox
-                </div>
-              </span> */}
-              <span
-                className={`${
-                  isOrganizations ? "text-primary" : ""
-                } w-[190px] px-5 pt-1 text-black-2 text-[15px] hover:text-primary mt-3`}
-              >
-                <div
-                  onClick={() => handleNevigation("Organizations")}
-                  className="cursor-pointer"
-                >
-                  translateMyOrganizations
-                </div>
-              </span>
-              <span
-                className={`${
-                  isOtherOrganizations ? "text-primary" : ""
-                } w-[190px] px-5 pt-1 text-black-2 text-[15px] hover:text-primary mt-3`}
-              >
-                <div
-                  onClick={() => handleNevigation("Other Organizations")}
-                  className="cursor-pointer"
-                >
-                  translateOtherOrganizations
-                </div>
-              </span>
-              {/* <span className="flex justify-start items-start ml-[18px] mt-[5px]">
-                <DropdownMessageNabBar
-                  setIsMessageOpen={setIsMessageOpen}
-                  isOpen={isOpen}
-                />
-              </span> */}
-              {/* <span className="flex justify-start items-start ml-[18px] mt-[5px]">
-                <DropdownNotificationNavBar
-                  setIsNotificationOpen={setIsNotificationOpen}
-                  isOpen={isOpen}
-                />
-              </span> */}
-            </span>
-          </div>
-          <div className=" flex  flex-col w-[180px] justify-start  lg:hidden">
+        <div className="flex justify-end items-end">
             <div
-              className="bg-primary rounded-[8px] flex justify-start items-center cursor-pointer border border-primary hover:bg-[#462BD3] px-2 py-1.5 mr-0 ml-5 mt-3 "
-              onClick={() => handleEventCreate()}
-            >
-              <span className="mr-1">
-                <RiCalendarLine className="text-white text-base" />
-              </span>
-              <div className="text-center font-medium text-white text-base font-poppins leading-6 ">
-                <div>translateCreateEvent</div>
-              </div>
-            </div>
+          className={`flex justify-end  lg:hidden  flex-col ${toggle ? "hidden" : "flex"}`}
+        >
+          
+          <div className=" flex  flex-col w-[180px] justify-start  lg:hidden">
+           
 
-            {/* <div className="relative ml-[-10px] gap-5 flex justify-center items-center">
-              <div>
-                <RiNotification3Line
-                  className=" text-[#9BA4BB] flex justify-center items-center mt-3 mr-28"
-                  size={25}
-                />
-              </div>
-            </div>
-            <div>
-              <span>
-                <FaCircle
-                  className={`${
-                    isOnline ? "text-[#2DC774]" : "text-red-500"
-                  } -mt-8 mx-9.5 w-[12px]`}
-                  onClick={toggleOnlineStatus}
-                />
-              </span>
-            </div> */}
-
-            {/* <div className="flex justify-center items-center cursor-pointer gap-2">
-              <Image
-                src={"/images/eventby/avata.png"}
-                width={40}
-                height={40}
-                alt="Profile Image"
-              />
-              <p className="text-base text-black-2 font-poppins">
-                Md. Nayeem Sagor
-              </p>
-              <Icon
-                path={mdiChevronDown}
-                title="Expand"
-                size={0.7}
-                color="#656F89"
-              />
-            </div> */}
+          
 
             <div className="relative mt-3">
               <div
@@ -801,16 +559,12 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
                 onClick={() => setIsOpen(!isOpen)}
               >
                 <Image
-                  src={
-                    profilePhoto
-                      ? `${process.env.NEXT_PUBLIC_BACKEND_SERVER}/get-image-by-path/${profilePhoto}/200/200/both`
-                      : "/images/eventby/avatar2.png"
-                  }
-                  width={40}
-                  height={40}
-                  alt="Profile Image"
-                  className="rounded-full"
-                />
+                      src="/images/silimage/rbl_plc.png"
+                      width={50}
+                      height={40}
+                      alt="Profile Image"
+                      className="rounded-full"
+                    />
                 <p className="text-base text-black-2 font-poppins">{name}</p>
                 <Icon
                   path={mdiChevronDown}
@@ -826,12 +580,21 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
                   className=" w-70 h-[150px] bg-white z-999 rounded-[10px] border border-slate_200 absolute right-0 -bottom-[157px] shadow-card left-1  "
                 >
                   <div className="relative  p-1 ">
-                    <Image
+
+                    {/* <Image
                       src={
                         profilePhoto
                           ? `${process.env.NEXT_PUBLIC_BACKEND_SERVER}/get-image-by-path/${profilePhoto}/200/200/both`
                           : "/images/eventby/avatar2.png"
                       }
+                      width={50}
+                      height={40}
+                      alt="Profile Image"
+                      className="rounded-full"
+                    /> */}
+          
+                    <Image
+                      src="/images/silimage/rbl_plc.png"
                       width={50}
                       height={40}
                       alt="Profile Image"
@@ -872,7 +635,7 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
                             className="text-base ml-5"
                             size={18}
                           />
-                          <span>ranslateAccountSettings</span>
+                          <span>AccountSettings</span>
                         </>
                       )}
                     </div>
@@ -885,7 +648,7 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
                       }}
                     >
                       <RiLogoutBoxRLine />
-                      <span>translateLogout</span>
+                      <span>Logout</span>
                     </div>
                   </div>
                 </div>
@@ -895,6 +658,8 @@ const NavbarOneComponent: React.FC<NavbarOnlyLogOutProps> = ({
             </div>
           </div>
         </div>
+        </div>
+      
       </div>
     </>
   );
