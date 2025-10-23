@@ -1,0 +1,92 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  darkMode: "class", // optional, needed if you use dark: utilities
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        satoshi: ["Satoshi", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+        dmsans: ["DM Sans", "sans-serif"], // lowercase key
+        serif: ["serif"],
+      },
+      colors: {
+        current: "currentColor",
+        transparent: "transparent",
+        white: "#FFFFFF",
+        black: "#1C2434",
+        "black-2": "#010101",
+        body: "#64748B",
+        bodydark: "#AEB7C0",
+        bodydark1: "#DEE4EE",
+        bodydark2: "#8A99AF",
+        primary: "#5232F8",
+        "primary-hover": "#462BD3",
+        secondary: "#33808C",
+        stroke: "#E2E8F0",
+        gray: "#EFF4FB",
+        graydark: "#333A48",
+        "gray-2": "#F7F9FC",
+        "gray-3": "#FAFAFA",
+        whiten: "#F1F5F9",
+        whiter: "#F5F7FD",
+        boxdark: "#24303F",
+        "boxdark-2": "#1A222C",
+        strokedark: "#2E3A47",
+        "form-strokedark": "#3d4d60",
+        "form-input": "#1d2a39",
+        "meta-1": "#DC3545",
+        "meta-2": "#EFF2F7",
+        "meta-3": "#10B981",
+        "meta-4": "#313D4A",
+        "meta-5": "#259AE6",
+        "meta-6": "#FFBA00",
+        "meta-7": "#FF6766",
+        "meta-8": "#F0950C",
+        "meta-9": "#E5E7EB",
+        success: "#219653",
+        danger: "#D34053",
+        warning: "#FFA70B",
+
+        purple_50: "#fdf4ff",
+        purple_60: "#fdf4ff",
+        purple_100: "#fae8ff",
+        purple_200: "#f5d0fe",
+        purple_300: "#f0abfc",
+        purple_400: "#e879f9",
+        purple_500: "#d946ef",
+        purple_600: "#c026d3",
+        purple_700: "#a21caf",
+        purple_800: "#86198f",
+        purple_900: "#701a75",
+        purple_950: "#4a044e",
+
+        slate_50: "#f9fafb",
+        slate_100: "#f3f4f6",
+        slate_200: "#e5e7eb",
+        slate_300: "#d1d5db",
+        slate_400: "#9ca3af",
+        slate_500: "#6b7280",
+        slate_600: "#4b5563",
+        slate_700: "#374151",
+        slate_800: "#1f2937",
+        slate_900: "#111827",
+        slate_950: "#030712",
+        slate_1000: "#3A445B",
+        slate_1050: "#9BA4BB",
+
+        blue_500: "#3b82f6",
+        blue_700: "#1d4ed8",
+      },
+      // Keep your fontSize, spacing, maxWidth, maxHeight, minWidth, zIndex, etc. as you already defined
+    },
+  },
+  plugins: [],
+};
+
+export default config;
