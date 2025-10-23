@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import PaymentSettingComponent from "./PasswordComponent";
-import PasswordComponent from "./PasswordComponent";
+import ExcelDataGridComponent from "./ExcelDataGridComponent";
 import PersonalInformationComponent from "./PasswordComponent";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
@@ -83,7 +83,7 @@ const DashboardMainComponent: React.FC = () => {
                 sideMenuIsExpand
                   ? "w-full "
                   : "w-full h-20 flex justify-end items-end"
-              } bg-white relative md:hidden block`}
+              } bg-[#5232F8] relative md:hidden block`}
             >
               <div className="flex items-center justify-between p-4">
                 <span
@@ -91,10 +91,10 @@ const DashboardMainComponent: React.FC = () => {
                     !sideMenuIsExpand && "hidden"
                   } origin-right text-[#9ba4bb] text-[16px] mr-4 flex justify-start items-center`}
                 >
-                  Digital Banking 
+                  DIGITAL-BANKING
                 </span>
                 <span
-                  className="bg-white border border-[#c7cdde] w-10 h-[38.5px] rounded-[6px] flex justify-center items-center cursor-pointer"
+                  className="bg-[#5232F8] border border-[#c7cdde] w-10 h-[38.5px] rounded-[6px] flex justify-center items-center cursor-pointer"
                   onClick={() => setSideMenuIsExpand(!sideMenuIsExpand)}
                 >
                   {sideMenuIsExpand ? (
@@ -112,11 +112,11 @@ const DashboardMainComponent: React.FC = () => {
                     {Menus.map((Menu, index) => (
                       <li
                         key={index}
-                        className={`flex bg-slate-100 rounded-s-[10px] p-3.5 cursor-pointer hover:bg-[#5944ce] text-[15px] items-center gap-x-1.5 h-[50px]
+                        className={`flex rounded-s-[10px] p-3.5 cursor-pointer hover:bg-[#5232F8] text-[15px] items-center gap-x-1.5 h-[50px]
              ${
                index === myIndex
-                 ? "bg-[#3367f4] text-white"
-                 : "text-[#c7cdde] hover:text-[#3367f4]"
+                 ? "bg-[#4122de] text-white hover:bg-[#4122de]  "
+                 : "text-[#c7cdde] hover:text-[#5232F8] bg-[#5232F8] "
              } `}
                         onClick={() => {
                           setMyIndex(index);
@@ -164,7 +164,7 @@ const DashboardMainComponent: React.FC = () => {
                     sideMenuIsExpand && "hidden"
                   } origin-left  text-[#9ba4bb] text-[16px] ml-4`}
                 >
-                  DIGITAL BANKING
+                  DIGITAL-BANKING
                 </span>
               </div>
               <hr className="text-[#F4F4F6]" />
@@ -172,12 +172,13 @@ const DashboardMainComponent: React.FC = () => {
                 {Menus.map((Menu, index) => (
                   <li
                     key={index}
-                    className={`flex rounded-s-[10px] p-3.5 cursor-pointer hover:bg-[#4d4297] text-[15px] items-center gap-x-1.5 h-[50px]
-               ${
-                 index === myIndex
-                   ? "bg-[#3367f4] text-white"
-                   : "text-[#c7cdde] hover:text-[#3367f4]"
-               } `}
+               className={`flex rounded-s-[10px] p-3.5 cursor-pointer  text-[15px] items-center gap-x-1.5 h-[50px]
+  ${
+    index === myIndex
+      ? "bg-[#4122de] text-white  "
+      : "text-[#c7cdde]   hover:text-[#5232F8] hover:bg-white"
+  }
+`}
                     onClick={() => {
                       setMyIndex(index);
                       if (window.innerWidth <= 640) {
@@ -206,7 +207,7 @@ const DashboardMainComponent: React.FC = () => {
                   </>
                 ) : myIndex === 1 ? (
                   <>
-                    <PasswordComponent />
+                    <ExcelDataGridComponent/>
                   </>
                 ) : myIndex === 2 ? (
                   <>
@@ -216,7 +217,7 @@ const DashboardMainComponent: React.FC = () => {
                   </>
                 ) : myIndex === 3 ? (
                   <>
-                    <ManageCategoryComponent />
+                    {/* <ManageCategoryComponent /> */}
                   </>
                 ) : (
                   <></>
