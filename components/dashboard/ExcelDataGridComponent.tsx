@@ -94,7 +94,7 @@ const ExcelDataGridComponent: React.FC = () => {
     setActiveColumn(null);
   };
 
-  // ✅ Close popup when clicking outside
+  
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
@@ -123,7 +123,6 @@ const ExcelDataGridComponent: React.FC = () => {
         className="mb-4 p-2 border rounded"
       />
 
-      {/* Filter Popup (Positioned under clicked filter icon) */}
       {activeColumn && (
         <div
           ref={popupRef}
