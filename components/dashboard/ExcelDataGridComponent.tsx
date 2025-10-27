@@ -4,7 +4,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as XLSX from 'xlsx';
 import DataTable, { TableColumn } from 'react-data-table-component';
 import { FaFilter } from 'react-icons/fa';
-
+import axios from "axios";
+import constants from "@/utils/constants";
+import Swal from "sweetalert2";
 interface RowData {
   [key: string]: string | number;
 }
@@ -30,7 +32,13 @@ const ExcelDataGridComponent: React.FC = () => {
       const wb = XLSX.read(bstr, { type: 'binary' });
       const wsname = wb.SheetNames[0];
       const ws = wb.Sheets[wsname];
-      const jsonData: RowData[] = XLSX.utils.sheet_to_json(ws);
+      // const jsonData: RowData[] = XLSX.utils.sheet_to_json(ws);
+
+
+        const jsonData: RowData[] = XLSX.utils.sheet_to_json(ws, {
+      raw: false,
+      dateNF: 'yyyy-mm-dd', // forces Excel date serials to string format
+    });
 
       setData(jsonData);
       setFilteredData(jsonData);
@@ -111,11 +119,64 @@ const ExcelDataGridComponent: React.FC = () => {
     };
   }, [activeColumn]);
 
+
+
+
+const handleSubmit = async () => {
+  try {
+    const start = performance.now();
+
+    const response = await axios.post(
+      process.env.NEXT_PUBLIC_BACKEND_SERVER + constants.api.savebanktansaction,
+      data,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true, // ✅ Required because CORS allows credentials
+      }
+    );
+
+    const end = performance.now();
+    console.log("Total time to insert data:12222222222222222222222 is :  ", (end - start), "ms");
+
+    if (response.status === 200) {
+      Swal.fire({
+        icon: "success",
+        title: "Success!",
+        text: response.data || "Data saved successfully.",
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: response.data?.message || "Something went wrong!",
+      });
+    }
+  } catch (error: any) {
+    console.error("Error saving data:", error);
+    Swal.fire({
+      icon: "error",
+      title: "Error!",
+      text: error.response?.data?.message || "Failed to save data.",
+    });
+  }
+};
+
+
+
   return (
       <div className="min-h-screen bg-gray-100 p-6 mb-5">
       <div className="p-4">
       <h2 className="text-xl font-bold mb-4">Excel Data Grid</h2>
-
+   <div className="flex justify-end"> 
+      <button
+  className="bg-green-600 text-white px-3 py-1 rounded mt-4"
+  onClick={handleSubmit}
+>
+  Save 
+</button>
+</div>
       <input
         type="file"
         accept=".xlsx, .xls"
@@ -179,6 +240,7 @@ const ExcelDataGridComponent: React.FC = () => {
         className="bg-white rounded shadow"
       />
     </div>
+ 
     </div>
    
   );

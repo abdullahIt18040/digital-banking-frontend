@@ -31,6 +31,7 @@ export default {
     signUp: "/api/v1/auth/signup",
     signIn: "/api/v1/auth/signin",
     logoutUser: "/user/logout",
+   savebanktansaction: "/api/v2/excle/savebanktansaction",
 
     getDashboardStatsData: "/event/get-dashboard-data",
     getDashboardUpcommingEvents: "/event/get-dashboard-upcoming-events",
